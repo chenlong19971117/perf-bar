@@ -22,27 +22,21 @@ macOS 菜单栏系统性能监视器。常驻菜单栏，实时显示 CPU 与内
 
 ## 构建与运行
 
+`build.sh` 会构建 release 并直接安装到 `/Applications`（只保留这一份，避免 Spotlight / Launchpad 出现重复图标）。
+
 ```bash
-# 构建 release 并打包为 .app
+# 构建并安装到「应用程序」
 ./build.sh
 
-# 构建并立即启动
+# 构建、安装并立即启动
 ./build.sh --run
 ```
 
-产物位于 `build/Perf Bar.app`。也可用 SwiftPM 直接运行（无 app bundle）：
+安装路径为 `/Applications/Perf Bar.app`，可用 Spotlight（`⌘空格` → `Perf Bar`）启动。也可用 SwiftPM 直接运行（无 app bundle）：
 
 ```bash
 swift run
 ```
-
-### 安装到「应用程序」
-
-```bash
-cp -R "build/Perf Bar.app" /Applications/
-```
-
-之后可用 Spotlight（`⌘空格` → `Perf Bar`）启动。
 
 ### 开机自启
 
